@@ -13,17 +13,17 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('royalties', function (Blueprint $table) {
+        /*Schema::create('royalties', function (Blueprint $table) {
             $table->id('royaltyID');
             $table->integer('contractID');
+            $table->integer('artistID');
             $table->decimal('royaltyRate', 5, 2);
             $table->decimal('productionCost', 10, 2);
             $table->decimal('distributionCost', 10, 2);
             $table->decimal('amountPayable', 10, 2);
-            $table->timestamps();
 
 
-        });
+        });*/
     }
 
     /**

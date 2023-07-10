@@ -21,10 +21,10 @@ return new class extends Migration
             $table->enum('sex', ['male', 'female']);
             $table->integer('age');
             $table->string('nationality');
-            $table->integer('contactDetails', 10);
+            $table->bigInteger('contactDetails');
             $table->string('address');
             $table->string('socialMediaHandle');
-            $table->timestamps();
+            $table->string('biography');
 
         });
     }

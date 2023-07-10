@@ -19,10 +19,9 @@ return new class extends Migration
             $table->date('startDate');
             $table->date('endDate');
             $table->decimal('royaltyRate', 5, 2);
-            $table->decimal('advanceFee', 8, 2);
+            $table->float('advanceFee', 100, 2);
             $table->decimal('eventCut', 5, 2);
             $table->decimal('merchandiseCut', 5, 2);     
-            $table->timestamps();
        
         });
     }

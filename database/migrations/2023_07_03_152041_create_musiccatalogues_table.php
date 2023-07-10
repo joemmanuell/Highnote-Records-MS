@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('musiccatalogues', function (Blueprint $table) {
-            $table->id('sondID');
+            $table->id('songID');
             $table->integer('artistID');
             $table->string('title');
             $table->string('platform');
@@ -22,7 +22,6 @@ return new class extends Migration
             $table->integer('streams');
             $table->float('productionCost');
             $table->float('distributionCost');   
-            $table->timestamps();
         
         });
     }
