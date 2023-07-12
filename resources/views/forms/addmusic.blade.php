@@ -203,20 +203,33 @@
                         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
                             <h3>NEW MUSIC</h3>
                             <div class="card">
-                                <form class="form-card" onsubmit="event.preventDefault()">
+                                <div>
+                                    @if($errors->any())
+                                        <ul>
+                                              @foreach($errors->all() as $error)
+                                                <li>
+                                                    {{$error}}
+                                                </li>
+                                              @endforeach
+                                        </ul>
+                                    @endif
+                                </div>
+                                <form class="form-card" action="{{route('forms.musicstore')}}">
+                                    @csrf
+                                    @method('POST') 
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Song ID<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter your first name" onblur="validate(1)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Artist ID<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Song ID<span class="text-danger"> *</span></label> <input type="text" id="fname" name="songID" value="{{ $nextSongID }}" readonly placeholder="" onblur="validate(1)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Artist ID<span class="text-danger"> *</span></label> <input type="text" id="lname" name="artistID" placeholder="" onblur="validate(2)"> </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Title<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="" onblur="validate(3)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Platform<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="" onblur="validate(4)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Title<span class="text-danger"> *</span></label> <input type="text" id="email" name="title" placeholder="" onblur="validate(3)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Platform<span class="text-danger"> *</span></label> <input type="text" id="mob" name="platform" placeholder="" onblur="validate(4)"> </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Rate Per Stream<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Streams<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Production Cost<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Distribution Cost<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Rate Per Stream<span class="text-danger"> *</span></label> <input type="text" id="job" name="ratePerStream" placeholder="" onblur="validate(5)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Streams<span class="text-danger"> *</span></label> <input type="text" id="job" name="streams" placeholder="" onblur="validate(5)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Production Cost<span class="text-danger"> *</span></label> <input type="text" id="job" name="productionCost" placeholder="" onblur="validate(5)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Distribution Cost<span class="text-danger"> *</span></label> <input type="text" id="job" name="distributionCost" placeholder="" onblur="validate(5)"> </div>
                                   </div>
                                     
                                     <div class="row justify-content-end">

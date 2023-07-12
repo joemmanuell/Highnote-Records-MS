@@ -10,8 +10,6 @@
     <meta name="author" content=""> 
     <link href="<?php echo asset('vendor/fontawesome-free/css/all.min.css')?>" rel="stylesheet" type="text/css">
     <link href="<?php echo asset('css/sb-admin-2.min.css')?>" rel="stylesheet">
-    <link href="<?php echo asset('css/form.css')?>" rel="stylesheet">
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
@@ -37,14 +35,14 @@
                 <div class="sidebar-brand-icon">
                     <i class="fas fa-user-alt"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Manager</div>
+                <div class="sidebar-brand-text mx-3">Accountant</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item ">
+            <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -53,65 +51,17 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Nav Item - Artist-->
-            <li class="nav-item ">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-money-bill-alt"></i>
-                    <span>Artists</span>
-                </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item " href="/addartist">Add New Artist</a>
-                        <a class="collapse-item" href="/addcontract">View Artist</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Contracts -->
-            <li class="nav-item active">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-money-bill"></i>
-                    <span>Contracts</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item active" href="/addcontract">Create New Contract</a>
-                        <a class="collapse-item" href="utilities-border.html">View Contracts</a>
-
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Music Catalogue -->
+                   <!-- Nav Item - Expenses -->
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-money-bill"></i>
-                    <span>Music Catalogue</span>
+                    <span>Users</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/addmusic">Add To Catalogue</a>
-                        <a class="collapse-item" href="utilities-border.html">View Catalogue</a>
-
-                    </div>
-                </div>
-            </li>
-            <!-- Nav Item - Events  -->
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <i class="fas fa-money-bill"></i>
-                    <span>Events</span>
-                </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/addevent">Schedule Event</a>
-                        <a class="collapse-item" href="utilities-border.html">View Scheduled Events</a>
+                        <a class="collapse-item" href="utilities-color.html">All Users</a>
 
                     </div>
                 </div>
@@ -131,13 +81,14 @@
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="login.html">Artist Stream Insights</a>
-                        <a class="collapse-item" href="register.html">Artist Engagement Insights</a>                       
+                        <a class="collapse-item" href="login.html">All Users</a>                       
                     </div>
                 </div>
             </li>
 
-                 <!-- Divider -->
+                
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -166,7 +117,7 @@
 
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
-        
+       
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
@@ -198,39 +149,43 @@
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
-                <div class="container-fluid px-1 py-5 mx-auto">
-                    <div class="row d-flex justify-content-center">
-                        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-                            <h3>NEW CONTRACT</h3>
-                            <div class="card">
-                                <form class="form-card" onsubmit="event.preventDefault()">
-                                    <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Contract ID<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter your first name" onblur="validate(1)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Artist ID<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)"> </div>
-                                    </div>
-                                    <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Start Date<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="" onblur="validate(3)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">End Date<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="" onblur="validate(4)"> </div>
-                                    </div>
-                                    <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Royalty Rate<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Events Cut<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Merch Cut<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                     </div>
-                                    
-                                    <div class="row justify-content-end">
-                                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-danger">Submit</button> </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                </div>
-                <!-- /.container-fluid -->
+                    <div>
+                        <table border="1">
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Role</th>
+                                <th>Edit</th>
 
-            </div>
+                            </tr>
+                            @foreach($users as $user)
+                            <tr>
+                                <td>{{$user->id}}</td>
+                                <td>{{$user->firstname}}</td>
+                                <td>{{$user->lastname}}</td>
+                                <td>{{$user->username}}</td>
+                                <td>{{$user->email}}</td>
+                                <td>{{$user->password}}</td>
+                                <td>{{$user->role}}</td>
+                                <td>
+                                    <a href="{{route('main.edituser', ['user' => $user])}}">Edit User</a>
+                                </td>
+
+                            </tr>
+                            @endforeach
+
+                        </table>
+                    </div>
+
+                
+                    
+                    
+
+                </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
@@ -284,7 +239,6 @@
     <!-- Custom scripts for all pages-->
     <script src="js/sb-admin-2.min.js"></script>
 
-    <script src="js/form.js"></script>
 
 
 </body>

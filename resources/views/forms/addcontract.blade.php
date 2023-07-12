@@ -54,7 +54,7 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Artist-->
-            <li class="nav-item active">
+            <li class="nav-item ">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-money-bill-alt"></i>
@@ -62,14 +62,14 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item active" href="/addartist">Add New Artist</a>
-                        <a class="collapse-item" href="buttons.html">View Artist</a>
+                        <a class="collapse-item " href="/addartist">Add New Artist</a>
+                        <a class="collapse-item" href="/addcontract">View Artist</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Contracts -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-money-bill"></i>
@@ -78,7 +78,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/addcontract">Create New Contract</a>
+                        <a class="collapse-item active" href="/addcontract">Create New Contract</a>
                         <a class="collapse-item" href="utilities-border.html">View Contracts</a>
 
                     </div>
@@ -201,28 +201,35 @@
                 <div class="container-fluid px-1 py-5 mx-auto">
                     <div class="row d-flex justify-content-center">
                         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-                            <h3>NEW ARTIST</h3>
+                            <h3>NEW CONTRACT</h3>
                             <div class="card">
-                                <form class="form-card" onsubmit="event.preventDefault()">
+                            <div>
+                                @if($errors->any())
+                                <ul>
+                                    @foreach($errors->all() as $error)
+                                    <li>
+                                        {{$error}}
+                                    </li>
+                                    @endforeach
+                                </ul>
+                                @endif
+                            </div>
+                                <form class="form-card" action="{{ route('forms.contractstore') }}" >
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Artist ID<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter your first name" onblur="validate(1)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Contract ID<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Contract ID<span class="text-danger"> *</span></label> <input type="text" id="fname" name="contractID" value="{{ $nextContractID }}" readonly placeholder="" onblur="validate(1)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Artist ID<span class="text-danger"> *</span></label>
+                                        <input type="text" id="fname" name="artistID" placeholder=" " onblur="validate(1)">
+                                        </div>
+                                    <div class="row justify-content-between text-left">
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Start Date<span class="text-danger"> *</span></label> <input type="date" name="startdate" placeholder="" onblur="validate(3)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">End Date<span class="text-danger"> *</span></label> <input type="date" name="enddate" placeholder="" onblur="validate(4)"> </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Full Legal Name<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="" onblur="validate(3)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Artist Name<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="" onblur="validate(4)"> </div>
-                                    </div>
-                                    <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Sex<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Age<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nationality<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Contact Details<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Address<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Social Media Handle<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                    </div>
-                                    <div class="row justify-content-between text-left">
-                                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">Biography<span class="text-danger"> *</span></label> <input type="text" id="ans" name="ans" placeholder="" onblur="validate(6)"> </div>
-                                    </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Royalty Rate<span class="text-danger"> *</span></label> <input type="number" min="1" max="100" id="myPercent" name="royaltyrate" placeholder="" onblur="validate(5)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Events Cut<span class="text-danger"> *</span></label> <input type="number" min="1" max="100" id="myPercent" name="eventscut" placeholder="" onblur="validate(5)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Merch Cut<span class="text-danger"> *</span></label> <input type="number" min="1" max="100" id="myPercent" name="merchcut" placeholder="" onblur="validate(5)"> </div>
+                                     </div>
+                                    
                                     <div class="row justify-content-end">
                                         <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-danger">Submit</button> </div>
                                     </div>

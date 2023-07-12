@@ -10,4 +10,15 @@ class contract extends Model
     use HasFactory;
     public $timestamps = false;
 
+    protected $fillable = [
+        'artistID',
+        'startDate',
+        'endDate',
+        'royaltyRate',
+        'advanceFee',
+        'eventCut',
+        'merchandiseCut',
+    ];
+
+
 }

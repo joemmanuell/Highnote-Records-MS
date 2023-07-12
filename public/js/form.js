@@ -79,3 +79,7 @@ function validate(val) {
 
     return flag;
 }
+
+document.getElementById('myForm').onsubmit = function() {
+    var valInDecimals = document.getElementById('myPercent').value / 100;
+}

@@ -60,7 +60,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Add New Artist</a>
+                        <a class="collapse-item" href="/addartist">Add New Artist</a>
                         <a class="collapse-item" href="buttons.html">View Artist</a>
                     </div>
                 </div>
@@ -76,7 +76,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Create New Contract</a>
+                        <a class="collapse-item" href="/addcontract">Create New Contract</a>
                         <a class="collapse-item" href="utilities-border.html">View Contracts</a>
 
                     </div>
@@ -92,7 +92,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Add To Catalogue</a>
+                        <a class="collapse-item" href="/addmusic">Add To Catalogue</a>
                         <a class="collapse-item" href="utilities-border.html">View Catalogue</a>
 
                     </div>
@@ -108,7 +108,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Schedule Event</a>
+                        <a class="collapse-item" href="/addevent">Schedule Event</a>
                         <a class="collapse-item" href="utilities-border.html">View Scheduled Events</a>
 
                     </div>

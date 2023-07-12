@@ -14,12 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('artists', function (Blueprint $table) {
-            $table->integer('artistID');
+            $table->id('artistID');
             $table->string('artistName');
             $table->string('legalName');
-            $table->integer('contractID');
             $table->enum('sex', ['male', 'female']);
-            $table->integer('age');
+            $table->date('DOB');
             $table->string('nationality');
             $table->bigInteger('contactDetails');
             $table->string('address');

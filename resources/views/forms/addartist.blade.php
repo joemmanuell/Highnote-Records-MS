@@ -54,7 +54,7 @@
             <hr class="sidebar-divider">
 
             <!-- Nav Item - Artist-->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-money-bill-alt"></i>
@@ -62,7 +62,7 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="/addartist">Add New Artist</a>
+                        <a class="collapse-item active" href="/addartist">Add New Artist</a>
                         <a class="collapse-item" href="buttons.html">View Artist</a>
                     </div>
                 </div>
@@ -110,7 +110,7 @@
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item active" href="/addevent">Schedule Event</a>
+                        <a class="collapse-item" href="/addevent">Schedule Event</a>
                         <a class="collapse-item" href="utilities-border.html">View Scheduled Events</a>
 
                     </div>
@@ -201,26 +201,50 @@
                 <div class="container-fluid px-1 py-5 mx-auto">
                     <div class="row d-flex justify-content-center">
                         <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
-                            <h3>NEW EVENT</h3>
+                            <h3>NEW ARTIST</h3>
                             <div class="card">
-                                <form class="form-card" onsubmit="event.preventDefault()">
+                                    <div>
+                                        @if($errors->any())
+                                        <ul>
+                                            @foreach($errors->all() as $error)
+                                            <li>
+                                                {{$error}}
+                                            </li>
+                                            @endforeach
+                                        </ul>
+                                        @endif
+                                    </div>
+                                <form method="POST" action="{{route('forms.artiststore')}}" class="form-card">
+                                    @csrf
+                                    @method('POST')
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Event ID<span class="text-danger"> *</span></label> <input type="text" id="fname" name="fname" placeholder="Enter your first name" onblur="validate(1)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Artist ID<span class="text-danger"> *</span></label> <input type="text" id="lname" name="lname" placeholder="Enter your last name" onblur="validate(2)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Artist ID<span class="text-danger"> *</span></label> <input type="text" id="fname" name="artistID" value="{{ $nextArtistID }}" readonly> </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Event Date<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" placeholder="" onblur="validate(3)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Event Name<span class="text-danger"> *</span></label> <input type="text" id="mob" name="mob" placeholder="" onblur="validate(4)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Full Legal Name<span class="text-danger"> *</span></label> <input type="text" id="email" name="legalName" placeholder="" onblur="validate(3)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Artist Name<span class="text-danger"> *</span></label> <input type="text" id="mob" name="artistName" placeholder="" onblur="validate(4)"> </div>
                                     </div>
                                     <div class="row justify-content-between text-left">
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Fixed Fee<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Door Fee<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
-                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Organizer Name<span class="text-danger"> *</span></label> <input type="text" id="job" name="job" placeholder="" onblur="validate(5)"> </div>
+                                            <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Sex<span class="text-danger"> *</span></label> 
+                                                <select name="sex" id="selection">
+                                                    <option value="" disabled selected>Select your option</option>
+                                                    <option value="option1">Male</option>
+                                                    <option value="option2">Female</option>
+                                                </select>
+
+                                            </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">DOB<span class="text-danger"> *</span></label> <input type="date" id="job" name="DOB" placeholder="" onblur="validate(5)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Nationality<span class="text-danger"> *</span></label> <input type="text" id="job" name="nationality" placeholder="" onblur="validate(5)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Contact Details<span class="text-danger"> *</span></label> <input type="number" id="job" name="contactDetails" placeholder="" onblur="validate(5)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Address<span class="text-danger"> *</span></label> <input type="text" id="job" name="address" placeholder="" onblur="validate(5)"> </div>
+                                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Social Media Handle<span class="text-danger"> *</span></label> <input type="text" id="job" name="socialMediaHandle" placeholder="" onblur="validate(5)"> </div>
+                                    </div>
+                                    <div class="row justify-content-between text-left">
+                                        <div class="form-group col-12 flex-column d-flex"> <label class="form-control-label px-3">Biography<span class="text-danger"> *</span></label> <input type="text" id="ans" name="biography" placeholder="" onblur="validate(6)"> </div>
                                     </div>
                                 
-                                    <div class="row justify-content-end">
-                                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-danger">Submit</button> </div>
-                                    </div>
+                                    <div class="row justify-content-end form-group col-sm-6"> <input type="submit" name="register" class="btn btn-danger btn-user btn-block" id="exampleRegister" value="Submit"> </div>
+                                
                                 </form>
                             </div>
                         </div>
